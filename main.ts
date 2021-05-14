@@ -1,6 +1,5 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.say("caca!!", 100)
-    otherSprite.setKind(SpriteKind.Enemy)
 })
 let mySprite: Sprite = null
 scene.setBackgroundImage(img`
@@ -177,11 +176,12 @@ let mySprite2 = sprites.create(img`
     . e e e e e e e e e e e f e e e 
     e e e e e e e e e e e f f e e e 
     e e e e e e f f f f f f e e e e 
-    e e e e e e e f f f f e e e e e 
-    e e e e e e e e f f e e e e e e 
+    e e e e e e e e e e e e e e e e 
+    e e e e e e e e e e e e e e e e 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Enemy)
 enemic.setPosition(14, 13)
-mySprite2.setPosition(137, 13)
+mySprite.setPosition(80, 41)
+enemic.follow(mySprite, 50)
 controller.moveSprite(mySprite)
