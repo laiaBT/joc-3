@@ -1,7 +1,6 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.say("caca!!", 100)
 })
-let mySprite: Sprite = null
 scene.setBackgroundImage(img`
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -126,8 +125,7 @@ scene.setBackgroundImage(img`
     `)
 tiles.setTilemap(tilemap`level1`)
 scene.cameraShake(5, 1000)
-scene.cameraFollowSprite(mySprite)
-mySprite = sprites.create(img`
+let mySprite = sprites.create(img`
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -183,5 +181,7 @@ let mySprite2 = sprites.create(img`
     `, SpriteKind.Enemy)
 enemic.setPosition(14, 13)
 mySprite.setPosition(80, 41)
-enemic.follow(mySprite, 50)
+enemic.follow(mySprite, 20)
+mySprite2.follow(mySprite, 30)
 controller.moveSprite(mySprite)
+scene.cameraFollowSprite(mySprite)
